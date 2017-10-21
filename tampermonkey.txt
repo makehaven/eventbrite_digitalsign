@@ -1,0 +1,46 @@
+// ==UserScript==
+// @name         EventBrite Stripper
+// @namespace    http://makehaven.org
+// @version      0.1
+// @description  Remove header and social media content from eventbrite website for the digital sign
+// @author       Lerch
+// @match        https://www.eventbrite.com/o/makehaven-9268848926
+// @grant        GM_addStyle
+// @require http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    $('.organizer-header').remove();
+    $('.global-header-container').remove();
+    $('.g-cell-lg-4-12').remove();
+    $('.list-card__footer').remove();
+    $('.list-card__venue').remove();
+    $('.tabs-header').remove();
+
+
+
+    // refresh the page every 5 minutes
+    //var numMinutes = 0.5;
+    //setTimeout (location.reload, numMinutes*60*1000);
+
+    var numMinutes = 1;
+    setTimeout(function(){ location.reload(); }, 3600*1000);
+    //setTimeout (location.reload(true), 15000); //numMinutes*60*1000
+
+    GM_addStyle ( ".g-cell-lg-8-12 {  width: 100% !important;  }  " );
+    GM_addStyle ( ".list-card__header {  width: 400px !important;  }  " );
+    GM_addStyle ( ".list-card__image {  width: 400px !important;  height: 200px !important;   }  " );
+    GM_addStyle ( ".js-poster-image {  width: 400px !important; height: 200px !important;  }  " );
+    GM_addStyle ( ".list-card__date {  font-size:35px !important;  overflow: visible !important; }  " );
+    GM_addStyle ( ".list-card__main {  height:200px !important;  }  " );
+    GM_addStyle ( ".list-card__title {  font-size:40px !important; padding-top:20px !important; overflow:visible !important; line-height:45px !important; }  " );
+    GM_addStyle ( ".list-card__body {  height:200px !important;  }  " );
+
+
+
+    //$("div.g-cell-lg-8-12").width("100%");
+
+})();
+
